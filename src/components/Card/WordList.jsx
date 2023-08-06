@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import WordCard from './WordCard';
+import styles from './wordList.module.scss';
 
 function WordList({ words }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,12 +16,10 @@ function WordList({ words }) {
   const currentWord = words[currentIndex];
 
   return (
-    <div>
+    <div className={styles.wordList}>
+      <button onClick={handlePrevWord} className={styles.arrowButton}>←</button>
       <WordCard word={currentWord.word} translation={currentWord.translation} />
-      <div>
-        <button onClick={handlePrevWord}>Предыдущее слово</button>
-        <button onClick={handleNextWord}>Следующее слово</button>
-      </div>
+      <button onClick={handleNextWord} className={styles.arrowButton}>→</button>
     </div>
   );
 }

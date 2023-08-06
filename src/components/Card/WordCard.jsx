@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import st from './wordcard.module.scss';
+import st from './wordCard.module.scss';
 
 function WordCard({ word, translation }) {
   const [showTranslation, setShowTranslation] = useState(false);
@@ -9,7 +9,7 @@ function WordCard({ word, translation }) {
   };
 
   return (
-    <div className="word-card">
+    <div className={st["word-card"]}>
       <h3>{showTranslation ? translation : word}</h3>
       <button onClick={handleShowTranslation}>
         {showTranslation ? 'Скрыть перевод' : 'Показать перевод'}

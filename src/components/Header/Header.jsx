@@ -1,5 +1,5 @@
-import React from 'react'
-//import st from './header.module.scss'
+import React from 'react';
+import st from './header.module.scss';
 
 export default function Header() {
   return (
