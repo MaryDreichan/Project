@@ -1,11 +1,10 @@
 import React from "react";
-import Home from "./components/pages/Home/Home";
-import Slider from "./components/pages/Slider/Slider";
-import Table from "./components/pages/Table/Table"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-//import Card from "./components/Card/Card";
-import WordList from "./components/Card/WordList";
+import Cards from "./components/Card/Cards";
+import Menu from "./components/Menu/Menu";
 import './style/App.scss';
 
 const wordsData = [
@@ -26,22 +25,27 @@ const wordsData = [
   { word: 'Pen', translation: 'Ручка' },
 ];
 
-
-
 function App() {
   return (
-    <div className="container">
-      <header>
-        <Header />
-      </header>
-      <main>
-        <WordList words={wordsData} />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </div>
+    <Router>
+      <div className="container">
+        <header>
+          <Menu />
+          <Header />
+        </header>
+        <main>
+        <Routes>
+          <Route path="/" element={<Home wordsData={wordsData} />} />
+          <Route path="/cards" element={<Cards wordsData={wordsData} />} />
+        </Routes>
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
+    </Router>
   );
 }
+
 
 export default App;
