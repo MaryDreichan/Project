@@ -18,6 +18,9 @@ function Menu() {
         <li>
           <Link to="/cards" className={styles.menuLink}>Страница с карточками</Link>
         </li>
+        <li>
+          <Link to="/game" className={styles.menuLink}>Игра</Link>
+        </li>
       </ul>
     </nav>
   );

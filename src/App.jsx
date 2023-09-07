@@ -7,6 +7,7 @@ import Cards from "./pages/Card/Cards";
 import Menu from "./components/Menu/Menu";
 import NotFound from "./pages/NotFound/NotFound";
 import './style/App.scss';
+import CardTrainer from "./pages/Card/CardTrainer";
 
 const wordsData = [
   { word: 'Stork', translation: 'Аист' },
@@ -35,11 +36,12 @@ function App() {
           <Header />
         </header>
         <main>
-        <Routes>
-          <Route path="/" element={<Home wordsData={wordsData} />} />
-          <Route path="/cards" element={<Cards wordsData={wordsData} />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<Home wordsData={wordsData} />} />
+            <Route path="/cards" element={<Cards wordsData={wordsData} />} />
+            <Route path="/game/" element={<CardTrainer wordsData={wordsData} />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </main>
         <footer>
           <Footer />
@@ -48,6 +50,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;
