@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Cards from "./pages/Card/Cards";
 import Menu from "./components/Menu/Menu";
+import NotFound from "./pages/NotFound/NotFound";
 import './style/App.scss';
 
 const wordsData = [
@@ -37,6 +38,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home wordsData={wordsData} />} />
           <Route path="/cards" element={<Cards wordsData={wordsData} />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         </main>
         <footer>
