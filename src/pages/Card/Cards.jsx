@@ -20,7 +20,6 @@ function Cards({ wordsData }) {
       <button onClick={handlePrevWord} className={styles.arrowButton}>←</button>
       <WordCard word={wordsData[currentIndex].word} translation={wordsData[currentIndex].translation} />
       <button onClick={handleNextWord} className={styles.arrowButton}>→</button>
-      <CardTrainer wordsData={wordsData} />
     </div>
   );
 }
