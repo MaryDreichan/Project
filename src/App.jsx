@@ -6,7 +6,10 @@ import Footer from "./components/Footer/Footer";
 import Cards from "./pages/Card/Cards";
 import Menu from "./components/Menu/Menu";
 import NotFound from "./pages/NotFound/NotFound";
-import './style/App.scss';
+//import './style/App.scss';
+//import './style/vars.scss';
+//import './style/template.scss';
+//import './style/index.scss';
 import CardTrainer from "./pages/Card/CardTrainer";
 
 const wordsData = [

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import WordCard from './WordCard';
-import CardTrainer from './CardTrainer';
-import styles from './cards.module.scss';
+import styles from './cards.module.css';
 
+import CardTrainer from './CardTrainer';
 
 function Cards({ wordsData }) {
   const [currentIndex, setCurrentIndex] = useState(0);

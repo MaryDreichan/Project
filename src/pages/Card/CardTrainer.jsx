@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './cardTrainer.module.scss';
+import styles from './cardTrainer.module.css';
+
 
 function CardTrainer({ wordsData }) {
   const [currentIndex, setCurrentIndex] = useState(0);

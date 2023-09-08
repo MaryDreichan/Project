@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import st from './wordCard.module.scss';
+import st from './wordCard.module.css';
 
 function WordCard({ word, translation }) {
   const [showTranslation, setShowTranslation] = useState(false);
