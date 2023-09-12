@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './cardTrainer.module.css';
+import st from './cardTrainer.module.scss';
 
 
 function CardTrainer({ wordsData }) {
@@ -32,11 +32,11 @@ function CardTrainer({ wordsData }) {
   };
 
   return (
-    <div className="card-trainer-container">
-      <div className="card">
+    <div className={st["card-trainer-container"]}>
+      <div className={st["card"]}>
         <h3>{wordsData[currentIndex].translation}</h3>
       </div>
-      <div className="answer">
+      <div className={st["answer"]}>
         <input
           type="text"
           placeholder="Как по-английски?"
@@ -45,7 +45,7 @@ function CardTrainer({ wordsData }) {
         />
         <button onClick={handleAnswer}>Ответить</button>
       </div>
-      <div className="stats">
+      <div className={st["stats"]}>
         <p>Правильные ответы: {stats.correctAnswers}</p>
         <p>Неправильные ответы: {stats.incorrectAnswers}</p>
       </div>

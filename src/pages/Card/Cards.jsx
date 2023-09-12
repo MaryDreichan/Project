@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import WordCard from './WordCard';
-import styles from './cards.module.css';
+import styles from './cards.module.scss';
 
 import CardTrainer from './CardTrainer';
 
