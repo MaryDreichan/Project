@@ -6,6 +6,7 @@ import CardTrainer from './CardTrainer';
 
 function Cards({ wordsData }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [learnedWordsCount, setLearnedWordsCount] = useState(0);
 
   const handleNextWord = () => {
     setCurrentIndex((prevIndex) => (prevIndex === wordsData.length - 1 ? 0 : prevIndex + 1));
@@ -15,11 +16,24 @@ function Cards({ wordsData }) {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? wordsData.length - 1 : prevIndex - 1));
   };
 
+  const handleIncrementCount = () => {
+    setLearnedWordsCount((prevCount) => prevCount + 1);
+  };
+
   return (
     <div className={styles.card}>
-      <button onClick={handlePrevWord} className={styles.arrowButton}>←</button>
-      <WordCard word={wordsData[currentIndex].word} translation={wordsData[currentIndex].translation} />
-      <button onClick={handleNextWord} className={styles.arrowButton}>→</button>
+      <div className={styles["cards-container"]}>
+        <button onClick={handlePrevWord} className={styles.arrowButton}>←</button>
+        <WordCard
+          word={wordsData[currentIndex].word}
+          translation={wordsData[currentIndex].translation}
+          onShowTranslation={handleIncrementCount} 
+        />
+        <button onClick={handleNextWord} className={styles.arrowButton}>→</button>
+      </div>
+      <div className={styles["learned-words-container"]}>
+        <p className={`${styles["learned-words"]} learned-words`}>Изучено слов: {learnedWordsCount}</p>
+      </div>
     </div>
   );
 }

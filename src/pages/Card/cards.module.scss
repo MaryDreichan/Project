@@ -1,8 +1,9 @@
 .card {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
   
   .arrowButton {
     font-size: 20px;
@@ -49,3 +50,31 @@
   .word-card button:hover {
     background-color: #d0d0d0;
   }
+
+  .cards-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+  }
+  
+  .learned-words {
+    background-color: #75ac78; 
+    color: white; 
+    padding: 10px; 
+    border-radius: 5px; 
+    text-align: center; 
+    font-size: 18px; 
+    margin-top: 20px; 
+    width: 200px; 
+    margin-left: auto; 
+    margin-right: auto; 
+  }
+
+  .learned-words-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 20px;
+  }
+  

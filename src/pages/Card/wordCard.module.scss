@@ -3,7 +3,7 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   background-color: rgb(147, 201, 207);
+   background-color: rgb(141, 205, 212);
    width: 500px;
    height: 50vh;
    border-radius: 10px;
@@ -43,4 +43,9 @@
   
   .word-card button:hover {
     background-color: #d0d0d0;
+  }
+
+  .word-card button:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #4272a5; 
   }
