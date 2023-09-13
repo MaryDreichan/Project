@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import st from './wordCard.module.scss';
 
 function WordCard({ word, translation }) {
   const [showTranslation, setShowTranslation] = useState(false);
+
+  useEffect(() => {
+    setShowTranslation(false);
+  }, [word]);
 
   const handleShowTranslation = () => {
     setShowTranslation(!showTranslation);
