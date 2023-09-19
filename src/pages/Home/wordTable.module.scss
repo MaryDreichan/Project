@@ -1,17 +1,17 @@
 .word-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 400px; 
+  margin-top: 400px;
 }
 
 .word-table th, .word-table td {
   border: 1px solid #ddd;
   padding: 15px; 
-  text-align: center; 
+  text-align: center;
 }
 
 .word-table th {
-  background-color: #f2f2f2;
+  background-color: #e77f7f;
 }
 
 .word-table tr:nth-child(even) {
@@ -19,5 +19,5 @@
 }
 
 .word-table tr:hover {
-  background-color: #ddd;
+  background-color: #dddddd;
 }

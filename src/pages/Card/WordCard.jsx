@@ -17,8 +17,11 @@ const WordCard = ({ word, translation, onShowTranslation }) => {
     }
   };
 
+  const isWordEmpty = word.trim() === "";
+  const isTranslationEmpty = translation.trim() === "";
+
   return (
-    <div className={st["word-card"]}>
+    <div className={`${st["word-card"]} ${isWordEmpty || isTranslationEmpty ? "empty-field" : ""}`}>
       <h3>{showTranslation ? translation : word}</h3>
       <button
         ref={showTranslationButtonRef}

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import WordCard from './WordCard';
 import styles from './cards.module.scss';
 
-import CardTrainer from './CardTrainer';
-
 function Cards({ wordsData }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [learnedWordsCount, setLearnedWordsCount] = useState(0);
