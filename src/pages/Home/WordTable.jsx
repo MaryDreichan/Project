@@ -8,6 +8,19 @@ function WordTable({ wordsData }) {
   const handleInputChange = (event, index) => {
     const { name, value } = event.target;
     const updatedWordsData = [...wordsData];
+
+    if (name === "word") {
+      const isValidWord = /^[a-zA-Z]+$/.test(value);
+      if (!isValidWord) {
+        return;
+      }
+    } else if (name === "translation") {
+      const isValidTranslation = /^[а-яА-ЯёЁ]+$/.test(value);
+      if (!isValidTranslation) {
+        return;
+      }
+    }
+
     updatedWordsData[index][name] = value;
     const hasEmptyField = updatedWordsData.some(
       (word) => word.word.trim() === "" || word.translation.trim() === ""
