@@ -17,8 +17,8 @@ const WordCard = ({ word, translation, onShowTranslation }) => {
     }
   };
 
-  const isWordEmpty = word.trim() === "";
-  const isTranslationEmpty = translation.trim() === "";
+  const isWordEmpty = word ? word.trim() === "" : true;
+  const isTranslationEmpty = translation ? translation.trim() === "" : true;
 
   return (
     <div className={`${st["word-card"]} ${isWordEmpty || isTranslationEmpty ? "empty-field" : ""}`}>

@@ -12,24 +12,6 @@ import './style/template.scss';
 import './style/index.scss';
 import CardTrainer from "./pages/Card/CardTrainer";
 
-const wordsData = [
-  { word: 'Stork', translation: 'Аист' },
-  { word: 'Apple', translation: 'Яблоко' },
-  { word: 'Car', translation: 'Машина' },
-  { word: 'House', translation: 'Дом' },
-  { word: 'Book', translation: 'Книга' },
-  { word: 'Sun', translation: 'Солнце' },
-  { word: 'Tree', translation: 'Дерево' },
-  { word: 'Water', translation: 'Вода' },
-  { word: 'Dog', translation: 'Собака' },
-  { word: 'Cat', translation: 'Кошка' },
-  { word: 'Chair', translation: 'Стул' },
-  { word: 'Table', translation: 'Стол' },
-  { word: 'Computer', translation: 'Компьютер' },
-  { word: 'Phone', translation: 'Телефон' },
-  { word: 'Pen', translation: 'Ручка' },
-];
-
 function App() {
   return (
     <Router>
@@ -40,9 +22,9 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route path="/" element={<Home wordsData={wordsData} />} />
-            <Route path="/cards" element={<Cards wordsData={wordsData} />} />
-            <Route path="/game/" element={<CardTrainer wordsData={wordsData} />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/cards" element={<Cards />} />
+            <Route path="/game/" element={<CardTrainer />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
