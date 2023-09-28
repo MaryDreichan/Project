@@ -22,7 +22,7 @@ class WordTable extends Component {
 
   fetchWordsData = async () => {
     try {
-      const response = await fetch("http://itgirlschool.justmakeit.ru/api/words");
+      const response = await fetch("/api/words"); 
       const data = await response.json();
       this.setState({
         wordsData: data,
@@ -38,26 +38,27 @@ class WordTable extends Component {
   handleInputChange = (event, index) => {
     const { name, value } = event.target;
     const updatedWordsData = [...this.state.wordsData];
-
+  
     if (name === "word") {
       const isValidWord = /^[a-zA-Z]+$/.test(value);
       if (!isValidWord) {
         return;
       }
+      updatedWordsData[index].word = value; 
     } else if (name === "translation") {
       const isValidTranslation = /^[а-яА-ЯёЁ]+$/.test(value);
       if (!isValidTranslation) {
         return;
       }
+      updatedWordsData[index].translation = value; 
     }
-
-    updatedWordsData[index][name] = value;
+  
     const hasEmptyField = updatedWordsData.some(
       (word) => word.word.trim() === "" || word.translation.trim() === ""
     );
     this.setState({ wordsData: updatedWordsData, isEmptyField: hasEmptyField });
   };
-
+  
   validateRow = (index) => {
     const word = this.state.wordsData[index].word;
     const translation = this.state.wordsData[index].translation;
@@ -81,7 +82,7 @@ class WordTable extends Component {
     if (this.validateRow(index)) {
       try {
         const updatedWord = this.state.wordsData[index];
-        const response = await fetch(`http://itgirlschool.justmakeit.ru/api/words/${updatedWord.id}`, {
+        const response = await fetch(`/api/words/${updatedWord.id}`, { 
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -112,20 +113,20 @@ class WordTable extends Component {
         word: this.state.newWord,
         translation: this.state.newTranslation,
       };
-      const response = await fetch("http://itgirlschool.justmakeit.ru/api/words", {
+      const response = await fetch("/api/words", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(newWord),
-      });
+      });      
 
       if (response.ok) {
         const createdWord = await response.json();
         const updatedWordsData = [...this.state.wordsData, createdWord];
         this.setState({
           wordsData: updatedWordsData,
-          newWord: "", // Очищаем поля после добавления
+          newWord: "",
           newTranslation: "",
         });
         console.log("Добавление нового слова успешно.");
@@ -144,7 +145,7 @@ class WordTable extends Component {
     }
 
     try {
-      const response = await fetch(`http://itgirlschool.justmakeit.ru/api/words/${wordToDelete.id}`, {
+      const response = await fetch(`/api/words/${wordToDelete.id}`, { 
         method: "DELETE",
       });
 
