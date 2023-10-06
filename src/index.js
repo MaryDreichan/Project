@@ -12,5 +12,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <WordProvider>
     <App />
-  </WordProvider>
+  </WordProvider>,
+  document.getElementById("root")
 );

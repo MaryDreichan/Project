@@ -3,7 +3,7 @@ import st from './cardTrainer.module.scss';
 import { useWordContext } from './WordContex';
 
 function CardTrainer() {
-  const wordsData = useWordContext();
+  const { words } = useWordContext();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -11,37 +11,24 @@ function CardTrainer() {
     correctAnswers: 0,
     incorrectAnswers: 0,
   });
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch("http://itgirlschool.justmakeit.ru/api/words");
-        const data = await response.json();
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Ошибка при загрузке слов из API:", error);
-        setIsLoading(false);
-      }
+    if (words.length > 0) {
+      setCurrentIndex(0);
     }
-
-    fetchData();
-  }, []);
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!wordsData || wordsData.length === 0) {
-    return <div>No data available</div>;
-  }
+  }, [words]);
 
   const handleNextCard = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === wordsData.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) => (prevIndex === words.length - 1 ? 0 : prevIndex + 1));
     setUserAnswer('');
   };
 
   const handleAnswer = () => {
-    const isCorrect = userAnswer.trim().toLowerCase() === wordsData[currentIndex].word.toLowerCase();
+    if (words.length === 0) {
+      return;
+    }
+
+    const isCorrect = userAnswer.trim().toLowerCase() === words[currentIndex].word.toLowerCase();
     if (isCorrect) {
       setStats((prevStats) => ({
         ...prevStats,
@@ -56,10 +43,16 @@ function CardTrainer() {
     handleNextCard();
   };
 
+  if (words.length === 0) {
+    return <div>No data available</div>;
+  }
+
+  const currentWord = words[currentIndex];
+
   return (
     <div className={st["card-trainer-container"]}>
       <div className={st["card"]}>
-        <h3>{wordsData[currentIndex].translation}</h3>
+        <h3>{currentWord.translation}</h3>
       </div>
       <div className={st["answer"]}>
         <input

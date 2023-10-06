@@ -11,6 +11,7 @@ import './style/vars.scss';
 import './style/template.scss';
 import './style/index.scss';
 import CardTrainer from "./pages/Card/CardTrainer";
+import { WordProvider } from "./pages/Card/WordContex"; 
 
 function App() {
   return (
@@ -36,5 +37,12 @@ function App() {
   );
 }
 
-export default App;
+function AppWithWordProvider() {
+  return (
+    <WordProvider>
+      <App />
+    </WordProvider>
+  );
+}
 
+export default AppWithWordProvider;

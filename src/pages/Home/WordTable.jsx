@@ -82,8 +82,8 @@ class WordTable extends Component {
     if (this.validateRow(index)) {
       try {
         const updatedWord = this.state.wordsData[index];
-        const response = await fetch(`/api/words/${updatedWord.id}`, { 
-          method: "PUT",
+        const response = await fetch(`/api/words/${updatedWord.id}/update`, { 
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -113,7 +113,7 @@ class WordTable extends Component {
         word: this.state.newWord,
         translation: this.state.newTranslation,
       };
-      const response = await fetch("/api/words", {
+      const response = await fetch("/api/words/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -143,12 +143,12 @@ class WordTable extends Component {
     if (!window.confirm(`Вы уверены, что хотите удалить слово "${wordToDelete.word}"?`)) {
       return;
     }
-
+  
     try {
-      const response = await fetch(`/api/words/${wordToDelete.id}`, { 
-        method: "DELETE",
+      const response = await fetch(`/api/words/${wordToDelete.id}/delete`, { 
+        method: "POST",
       });
-
+  
       if (response.ok) {
         const updatedWordsData = this.state.wordsData.filter((word) => word.id !== wordToDelete.id);
         this.setState({
@@ -194,7 +194,7 @@ class WordTable extends Component {
                 <input
                   type="text"
                   name="word"
-                  value={word.word}
+                  value={word.english}
                   onChange={(e) => this.handleInputChange(e, index)}
                   className={errors[index] ? styles["empty-field"] : ""}
                 />
@@ -203,7 +203,7 @@ class WordTable extends Component {
                 <input
                   type="text"
                   name="translation"
-                  value={word.translation}
+                  value={word.russian}
                   onChange={(e) => this.handleInputChange(e, index)}
                   className={errors[index] ? styles["empty-field"] : ""}
                 />
