@@ -110,8 +110,8 @@ class WordTable extends Component {
   handleAddWord = async () => {
     try {
       const newWord = {
-        word: this.state.newWord,
-        translation: this.state.newTranslation,
+        english: this.state.newWord,
+        russian: this.state.newTranslation,
       };
       const response = await fetch("/api/words/add", {
         method: "POST",

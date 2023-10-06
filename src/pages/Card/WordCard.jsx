@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import st from './wordCard.module.scss';
 import { useWordContext } from './WordContex';
 
-const WordCard = ({ onShowTranslation }) => {
+const WordCard = ({ word, translation, onShowTranslation }) => {
   const { words } = useWordContext(); 
 
   const [showTranslation, setShowTranslation] = useState(false);
@@ -31,7 +31,7 @@ const WordCard = ({ onShowTranslation }) => {
 
   return (
     <div className={`${st["word-card"]} ${isWordEmpty || isTranslationEmpty ? "empty-field" : ""}`}>
-      <h3>{showTranslation && currentWord ? currentWord.translation : currentWord ? currentWord.word : ""}</h3>
+      <h3>{showTranslation && translation ? translation : word ? word : ""}</h3>
       <button
         ref={showTranslationButtonRef}
         onClick={handleShowTranslation}

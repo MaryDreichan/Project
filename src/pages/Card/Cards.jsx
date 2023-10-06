@@ -4,7 +4,7 @@ import styles from './cards.module.scss';
 import { useWordContext } from './WordContex';
 
 function Cards() {
-  const wordsData = useWordContext();
+  const wordsData = useWordContext().words;
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [learnedWordsCount, setLearnedWordsCount] = useState(0);
