@@ -28,7 +28,7 @@ function CardTrainer() {
       return;
     }
 
-    const isCorrect = userAnswer.trim().toLowerCase() === words[currentIndex].word.toLowerCase();
+    const isCorrect = userAnswer.trim().toLowerCase() === words[currentIndex].english.toLowerCase();
     if (isCorrect) {
       setStats((prevStats) => ({
         ...prevStats,
@@ -51,6 +51,7 @@ function CardTrainer() {
 
   return (
     <div className={st["card-trainer-container"]}>
+      <h3>{currentWord.russian}</h3>
       <div className={st["card"]}>
         <h3>{currentWord.translation}</h3>
       </div>

@@ -38,8 +38,8 @@ function Cards() {
         <div className={styles['cards-container']}>
           <button onClick={handlePrevWord} className={styles.arrowButton}>←</button>
           <WordCard
-            word={wordsData[currentIndex].word}
-            translation={wordsData[currentIndex].translation}
+            word={wordsData[currentIndex].russian}
+            translation={wordsData[currentIndex].english}
             onShowTranslation={handleIncrementCount} 
           />
           <button onClick={handleNextWord} className={styles.arrowButton}>→</button>
